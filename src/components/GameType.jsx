@@ -1,9 +1,9 @@
 import React from 'react';
 
-const GameType = ({name, description}) => (
+const GameType = ({ name, description }) => (
   <article>
     <h2>{name}</h2>
-    <description>{description}</description>
+    <span>{description}</span>
   </article>
 );
 
