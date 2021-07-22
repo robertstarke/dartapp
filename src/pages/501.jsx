@@ -1,29 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import gameTypes from '../configs/gameTypes';
+import Game501 from '../components/gameModes/Game501.jsx';
 
 const Page501 = () => {
-  const [startGame, setStartGame] = useState(false);
-  const [players, setPlayers] = useState([]);
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const options = [];
 
-  return (
-    <section>
-      {!startGame && (
-        <>
-          <PlayerSelection setPlayers={setPlayers} />
-          <Options
-            options={gameTypes.find((gameType) => gameType.id === '501').options}
-            setOptions={setSelectedOptions}
-          />
-        </>
-      )}
-      {startGame && (
-        <>
-          <Game501 players={players} options={selectedOptions} />
-        </>
-      )}
-    </section>
-  );
+  return <Game501 options={options} />;
 };
 
 export default Page501;

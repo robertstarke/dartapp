@@ -1,18 +1,16 @@
-import React, { useContext, useState } from 'react';
-import { PlayerContext } from '../context/PlayerContext.jsx';
+import React, { useState } from 'react';
+import useStore from '../state/ApplicationState.js';
 
 const PlayerSelection = () => {
   const [playerName, setPlayerName] = useState('');
-  const { players, setPlayers } = useContext(PlayerContext);
+  const players = useStore((state) => state.players);
+  const createPlayer = useStore((state) => state.createPlayer);
+  const removePlayer = useStore((state) => state.removePlayer);
 
   const addPlayer = (e) => {
     e.preventDefault();
-    setPlayers([...players, { name: playerName }]);
+    createPlayer(playerName);
     setPlayerName('');
-  };
-
-  const removePlayer = (playerName) => {
-    setPlayers(players.filter((player) => player.name !== playerName));
   };
 
   return (
